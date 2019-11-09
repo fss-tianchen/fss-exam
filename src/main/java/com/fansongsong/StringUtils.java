@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * �ַ���������
- * @author zhuzg
+ * @author fan
  *
  */
 public class StringUtils {

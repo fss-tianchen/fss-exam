@@ -7,7 +7,7 @@ import java.util.Locale;
 
 /**
  * 
- * @author zhuzg
+ * @author fan
  *
  */
 public class DateUtils {

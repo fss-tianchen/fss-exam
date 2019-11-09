@@ -2,7 +2,7 @@ package com.fansongsong;
 
 /**
  * �Զ����쳣
- * @author zhuzg
+ * @author fan
  *
  */
 public class CmsException  extends Exception{
