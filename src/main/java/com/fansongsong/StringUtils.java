@@ -5,14 +5,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * �ַ���������
- * @author fan
- *
+ * 
+ * @ClassName: StringUtils 
+ * @Description: TODO
+ * @author: Creazy丿绝情
+ * @date: 2019年11月19日 下午4:24:04
  */
 public class StringUtils {
 	
 	/**
-	 * �ж�һ���ַ����Ƿ�Ϊ��
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -21,8 +23,12 @@ public class StringUtils {
 		return (str == null|| str.trim().equals(""));
 	}
 	
+	public static String generateChineseName() {
+		return getRandomCn(3);
+	}
+	
 	/**
-	 * �ж�Դ�ַ����Ƿ���ֵ��������Ҳ��ûֵ
+	 *  判断是否有值
 	 * @param str
 	 * @return
 	 */
@@ -32,7 +38,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ��֤�ֻ�����
+	 * 是否电话
 	 * @return
 	 */
 	public static boolean isMobile(String str) {
@@ -45,7 +51,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * У���ʼ�
+	 * 是否邮件
 	 * @param str
 	 * @return
 	 */
@@ -59,7 +65,8 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ��ȡnλ���Ӣ���ַ���
+	 * 获取  长度为n的  随机字符串
+	 * 大写字母   
 	 */
 	public static String getRandomStr(int n) {
 		
@@ -74,7 +81,24 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 3.3.8��ȡnλ���Ӣ�ĺ������ַ���
+	 * 获取随机字符串  仅仅包含字符串
+	 * @param n
+	 * @return
+	 */
+public static String getRandomNumber(int n) {
+		
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		
+		for (int i = 0; i < n; i++) {
+			char c = (char)('0' +  random.nextInt(10));
+			sb.append(c);
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * 随机字符串  仅仅包含大写字母 和 数字  生成的长度为  n
 	 */
 	public static String getRandomStr2(int n) {
 		
@@ -95,7 +119,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ��ȡ�������Ϊn �� �����ַ���
+	 * 生成长度为n 的中文字符串
 	 * @return
 	 */
 	public static String getRandomCn(int n ) {
@@ -109,7 +133,7 @@ public class StringUtils {
 	
 	
 	/**
-	 * ��ȡ�������
+	 * 生成一个随机的中文字符串 
 	 * @return
 	 */
 	private static char getRandomCn() {
@@ -130,7 +154,7 @@ public class StringUtils {
             str = new String(b, "GBK");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("����");
+            System.out.println("出现异常");
         }
 
         return str.charAt(0);

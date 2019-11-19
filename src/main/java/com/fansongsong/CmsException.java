@@ -1,9 +1,11 @@
 package com.fansongsong;
 
 /**
- * �Զ����쳣
- * @author fan
- *
+ * 
+ * @ClassName: CmsException 
+ * @Description: TODO
+ * @author: Creazy丿绝情
+ * @date: 2019年11月19日 下午4:24:28
  */
 public class CmsException  extends Exception{
 
