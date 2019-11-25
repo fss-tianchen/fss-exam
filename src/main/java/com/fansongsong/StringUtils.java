@@ -15,8 +15,11 @@ public class StringUtils {
 	
 	/**
 	 * 
+	 * @Title: isBlank 
+	 * @Description: str
 	 * @param str
 	 * @return
+	 * @return: boolean
 	 */
 	public static boolean isBlank(String str) {
 		
@@ -28,9 +31,12 @@ public class StringUtils {
 	}
 	
 	/**
-	 *  判断是否有值
+	 * 
+	 * @Title: haveValue 
+	 * @Description: 判断是否有值
 	 * @param str
 	 * @return
+	 * @return: boolean
 	 */
 	public static boolean haveValue(String str) {
 		
@@ -38,8 +44,12 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 是否电话
+	 * 
+	 * @Title: isMobile 
+	 * @Description: 是否电话
+	 * @param str
 	 * @return
+	 * @return: boolean
 	 */
 	public static boolean isMobile(String str) {
 		
@@ -51,22 +61,53 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 是否邮件
+	 * 
+	 * @Title: isEmail 
+	 * @Description: 是否邮件
 	 * @param str
 	 * @return
+	 * @return: boolean
 	 */
 	public static boolean isEmail(String str) {
-		
 		String regex="^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 		Pattern p =  Pattern.compile(regex);
 		Matcher matcher = p.matcher(str);
 		return matcher.find();
-		
 	}
 	
 	/**
-	 * 获取  长度为n的  随机字符串
-	 * 大写字母   
+	 * 
+	 * @Title: isHttpUrl 
+	 * @Description: 验证是否是URL
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isHttpUrl(String str){		
+		//转换为小写
+		str = str.toLowerCase();
+		String regex = "^((https|http|ftp|rtsp|mms)?://)"  //https、http、ftp、rtsp、mms
+               + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@  
+              + "(([0-9]{1,3}\\.){3}[0-9]{1,3}" // IP形式的URL- 例如：199.194.52.184               
+                + "|" // 允许IP和DOMAIN（域名） 或单域名
+                + "[0-9a-z]*"  // 或单域名
+                + "|" // 允许IP和DOMAIN（域名） 或单域名
+                + "([0-9a-z_!~*'()-]+\\.)*" // 域名- www.  
+                + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." // 二级域名  
+               + "[a-z]{2,6})" // first level domain- .com or .museum  
+               + "(:[0-9]{1,5})?" // 端口号最大为65535,5位数
+               + "((/?)|" // a slash isn't required if there is no file name  
+               + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";  
+		return  str.matches(regex);	
+	}
+	
+	/**
+	 * 
+	 * @Title: getRandomStr 
+	 * @Description: 获取  长度为n的  随机字符串
+	 * @param n
+	 * @return
+	 * @return: String
 	 */
 	public static String getRandomStr(int n) {
 		
@@ -81,11 +122,14 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 获取随机字符串  仅仅包含字符串
+	 * 
+	 * @Title: getRandomNumber 
+	 * @Description: 获取随机字符串  仅仅包含字符串
 	 * @param n
 	 * @return
+	 * @return: String
 	 */
-public static String getRandomNumber(int n) {
+	public static String getRandomNumber(int n) {
 		
 		StringBuilder sb = new StringBuilder();
 		Random random = new Random();
@@ -98,7 +142,12 @@ public static String getRandomNumber(int n) {
 	}
 	
 	/**
-	 * 随机字符串  仅仅包含大写字母 和 数字  生成的长度为  n
+	 * 
+	 * @Title: getRandomStr2 
+	 * @Description: 随机字符串  仅仅包含大写字母 和 数字  生成的长度为  n
+	 * @param n
+	 * @return
+	 * @return: String
 	 */
 	public static String getRandomStr2(int n) {
 		
@@ -113,16 +162,19 @@ public static String getRandomNumber(int n) {
 			}else {
 				sb.append(r-26);
 			}
-			
 		}
 		return sb.toString();
 	}
 	
 	/**
-	 * 生成长度为n 的中文字符串
+	 * 
+	 * @Title: getRandomCn 
+	 * @Description: 生成长度为n 的中文字符串
+	 * @param n
 	 * @return
+	 * @return: String
 	 */
-	public static String getRandomCn(int n ) {
+	public static String getRandomCn(Integer n ) {
 		
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < n; i++) {
@@ -131,18 +183,18 @@ public static String getRandomNumber(int n) {
 		return sb.toString();
 	}
 	
-	
 	/**
-	 * 生成一个随机的中文字符串 
+	 * 
+	 * @Title: getRandomCn 
+	 * @Description: 生成一个随机的中文字符串
 	 * @return
+	 * @return: char
 	 */
-	private static char getRandomCn() {
-		
+	private static char getRandomCn() {		
 		String str = "";
         int hightPos; //
         int lowPos;
         Random random = new Random();
-
         hightPos = (176 + Math.abs(random.nextInt(39)));
         lowPos = (161 + Math.abs(random.nextInt(93)));
 
@@ -156,12 +208,6 @@ public static String getRandomNumber(int n) {
             e.printStackTrace();
             System.out.println("出现异常");
         }
-
         return str.charAt(0);
 	}
-	
-	
-	
-	
-
 }
